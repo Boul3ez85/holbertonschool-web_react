@@ -19,8 +19,6 @@ const student2: Student = {
   location: "London"
 };
 
-/* const tableHeaders: string[] = ["firstName", "location"];
- */
 const studentsList: Array<Student> = [student1, student2];
 
 const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
