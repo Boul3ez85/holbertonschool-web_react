@@ -5,12 +5,8 @@ interface Teacher {
   yearsOfExperience?: number;
   location: string;
   [propName: string]: any;
-}
+};
 
-const teacher3: Teacher = {
-  firstName: 'John',
-  fullTimeEmployee: false,
-  lastName: 'Doe',
-  location: 'London',
-  contract: false,
+interface Directors extends Teacher {
+  numberOfReports: number;
 };
