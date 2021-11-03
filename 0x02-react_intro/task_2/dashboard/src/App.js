@@ -4,7 +4,6 @@ import './utils.js';
 import { getFullYear } from './utils.js';
 import { getFooterCopy } from './utils.js';
 
-
 function App() {
   return (
     <>
@@ -14,9 +13,9 @@ function App() {
       </header>
       <main className="App-body">
         <p>Login to access the full dashboard</p>
-        <label for="email">Email: </label>
+        <label htmlFor="email">Email: </label>
         <input type="email" name="email" id="email" />
-        <label for="password">Password: </label>
+        <label htmlFor="password">Password: </label>
         <input type="password" name="password" id="password" />
         <button type="button">OK</button>
       </main>
