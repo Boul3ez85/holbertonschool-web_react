@@ -1,44 +1,48 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-        devtool: 'inline-source-map',
-  entry: {
-    main: path.resolve(__dirname, './src/index.js'),
-  },
+  devtool: 'inline-source-map',
+  entry: './src/index.js',
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   devServer: {
-    hot: true,
-    contentBase: path.resolve(__dirname, 'dist'),
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-      { 
-        test: /\.css$/, 
-        use: ["style-loader", "css-loader"] 
-      },
-      { 
-        test: /\.(svg|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
-        loader: 'image-webpack-loader',
-      },
-    ]
+	hot: true,
+	static: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: './dist/index.html',
-      title: "Holberton Dashboard",
+	new CleanWebpackPlugin(),
+	new HtmlWebpackPlugin({
+	  template: './dist/index.html',
+      title: 'Holberton Dashboard',
     }),
   ],
+  module: {
+	rules: [
+	  {
+		test: /\.(js|jsx)$/,
+		exclude: /node_modules/,
+		loader: 'babel-loader',
+		options: {
+			presets: ['@babel/preset-env', '@babel/react']
+		}
+	  },
+	  {
+		test: /\.css$/i,
+		use: ['style-loader', 'css-loader'],
+	  },
+	  {
+		test: /\.(png|svg|jpg|jpeg|gif)$/i,
+		type: 'asset/resource',
+		loader: 'image-webpack-loader',
+  	  },
+	],
+  },
 };
