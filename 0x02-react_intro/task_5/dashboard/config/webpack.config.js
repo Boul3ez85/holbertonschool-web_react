@@ -21,20 +21,16 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+        loader: 'babel-loader',
       },
       { 
         test: /\.css$/, 
         use: ["style-loader", "css-loader"] 
       },
       { 
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(svg|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
+        loader: 'image-webpack-loader',
       },
     ]
   },
