@@ -1,17 +1,17 @@
 import React from 'react';
 import './Notifications.css';
-import { getLatestNotification } from '../utils/utils.js';
 import close from '../assets/close.jpeg';
-import NotificationItem from "./NotificationItem";
+import { getLatestNotification } from '../utils/utils';
+import NotificationItem from './NotificationItem';
 
 export default function Notifications() {
   return (
     <div className="Notifications">
       <p>Here is the list of notifications</p>
       <ul>
-        <NotificationItem type="default" value="New course available" />
-        <NotificationItem type="urgent" value="New resume available" />
-        <NotificationItem type="urgent" html={{__html: getLatestNotification() }} />
+        <NotificationItem type='default' value='New course available' />
+        <NotificationItem type='urgent' value='New resume available' />
+        <NotificationItem type="urgent" html={{__html: getLatestNotification()}} />
       </ul>
       <button
         aria-label="Close"

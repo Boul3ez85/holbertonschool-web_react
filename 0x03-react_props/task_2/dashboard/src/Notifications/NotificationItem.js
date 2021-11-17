@@ -1,18 +1,28 @@
-import React from "react";
-import { ReactDOM } from "react-dom";
+import React, { Fragment } from "react";
 
-function NotificationItem({ type, html, value }) {
-  let itemLi;
-
-  if (!value) {
-    itemLi = <li data-notification-type={type} dangerouslySetInnerHTML={html}></li>;
-  } else {
-    itemLi = (
-      <li data-notification-type={type}>{value}</li>
+class NotificationItem extends React.Component {
+  render() {
+    const { type, html, value } = this.props;
+    return (
+      <Fragment>
+        {
+					html !== undefined &&
+					<li
+						data-priority-type={type}
+						dangerouslySetInnerHTML={html}
+					/>
+				}
+				{
+					html === undefined &&
+					<li
+						data-priority-type={type}
+					>
+						{value}
+					</li>
+				}
+      </Fragment>
     );
   }
-  
-  return itemLi;
-};
+}
 
 export default NotificationItem;
