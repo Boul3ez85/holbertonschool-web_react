@@ -3,50 +3,57 @@ import { expect } from 'chai';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { shallow, configure } from 'enzyme';
 import Notifications from './Notifications';
+import NotificationItem from './NotificationItem';
 
 configure({adapter: new Adapter()});
 
-describe("Testing the <Notifications /> Component", () => {
-	
-	let wrapper;
+describe("Testing the <Notifications /> ", () => {
 
-	beforeEach(() => {
-	  wrapper = shallow(<Notifications />);
+  let propsOne = {
+    displayDrawer: false
+  };
+  let propsTwo = {
+    displayDrawer: true
+  }
+	
+  let wrapper1;
+  let wrapper2;
+
+  beforeEach(() => {
+	  wrapper1 = shallow(<Notifications {... propsOne} />);
+    wrapper2 = shallow(<Notifications {... propsTwo} />);
+  });
+
+  it("<Notifications /> is rendered without crashing", () => {
+	  expect(wrapper1.render()).to.not.be.an('undefined');
+  });
+
+  it("<Notifications /> renders three list items", () => {
+	  expect(wrapper2.find(NotificationItem)).to.have.lengthOf(3);
+  });
+
+  it("<Notifications /> renders the first <NotificationItem /> with the exact html tag", () => {
+	  expect(wrapper2.find('ul').childAt(0).html()).to.equal('<li data-priority-type="default">New course available</li>');
+  });
+
+  it("<Notifications /> render the text 'Here is the list of notifications'", () => {
+	  expect(wrapper2.contains(<p>Here is the list of notifications</p>)).to.equal(true);
+  });
+
+  it("Test that the menu item is being displayed when displayDrawer is false", () => {
+		expect(wrapper1.exists(".menuItem")).to.equal(true);
 	});
 
-	it("<Notifications /> is rendered without crashing", () => {
-	  expect(wrapper).to.not.be.an('undefined');
+	it("Test that the div.Notifications is not being displayed when displayDrawer is false", () => {
+		expect(wrapper1.exists(".Notifications")).to.equal(false);
 	});
 
-	it("<Notifications /> renders three list items", () => {
-      expect(wrapper.find('NotificationItem')).to.have.lengthOf(3);
+	it("Test that the menu item is being displayed when displayDrawer is true", () => {
+		expect(wrapper2.exists(".menuItem")).to.equal(true);
 	});
 
-	it("<Notifications /> render the text 'Here is the list of notifications'", () => {
-		expect(wrapper.contains(<p>Here is the list of notifications</p>)).to.equal(false);
+	it("Test that the div.Notifications is being displayed when displayDrawer is true", () => {
+		expect(wrapper2.exists(".Notifications")).to.equal(true);
 	});
 
-	it('menuItem with displayDrawer false', () => {
-		const wrapper = shallow(<Notifications />);
-		const mItem = wrapper.find('div.menuItem');
-		expect(mItem).to.have.lengthOf(1);
-	  });
-	
-	  it('Notification with displayDrawer false', () => {
-		const wrapper = shallow(<Notifications />);
-		const dNoti = wrapper.find('div.Notifications');
-		expect(dNoti).to.have.lengthOf(0);
-	  });
-	
-	  it('menuItem with displayDrawer true', () => {
-		const wrapper = shallow(<Notifications displayDrawer />);
-		const mItem = wrapper.find('div.menuItem');
-		expect(mItem).to.have.lengthOf(1);
-	  });
-	
-	  it('displayDrawer is true', () => {
-		const wrapper = shallow(<Notifications displayDrawer />);
-		const dNoti = wrapper.find('div.Notifications');
-		expect(dNoti).to.have.lengthOf(1);
-	  });
 });

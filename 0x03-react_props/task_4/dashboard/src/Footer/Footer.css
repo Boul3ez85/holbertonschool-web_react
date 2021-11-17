@@ -3,4 +3,7 @@
 .App-footer p {
     text-align: center;
     font-style: italic;
-  }
+    padding: .5rem 0;
+    height: 30px;
+    margin-top: -50px;
+}

@@ -5,23 +5,23 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: './src/App/App.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
   devServer: {
+	static: {
+		directory: path.resolve(__dirname, 'dist'),
+	},
 	hot: true,
-	static: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-	new CleanWebpackPlugin(),
-	new HtmlWebpackPlugin({
-	  template: './dist/index.html',
-      title: 'Holberton Dashboard',
+	  new CleanWebpackPlugin(),
+	  new HtmlWebpackPlugin({
+		  template: './dist/index.html',
+		  title: 'Holberton Dashboard',
+		  favicon: './dist/Favicon.ico'
     }),
   ],
   module: {
@@ -30,9 +30,6 @@ module.exports = {
 		test: /\.(js|jsx)$/,
 		exclude: /node_modules/,
 		loader: 'babel-loader',
-		options: {
-			presets: ['@babel/preset-env', '@babel/react']
-		}
 	  },
 	  {
 		test: /\.css$/i,
