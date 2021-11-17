@@ -1,10 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Cuprum:wght@400;700&family=Roboto:wght@400;700;900&family=Varela+Round&display=swap');
 
 body {
   max-height: 100vh;
   font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
+.App-header {
+  display: flex;
+  position: relative;
+}
+
+h1 {
+  position: absolute;
+  color: rgb(233, 67, 67);
+  top: 30%;
+  left: 190px;
+  font-weight: 900;
+}
+
+.App-body {
+  height: 360px;
+  border-top: rgb(233, 67, 67) solid 3px;
+  border-bottom: rgb(233, 67, 67) solid 3px;
+}
+
+.App-body p {
+  padding: 30px;
+}
+
+.App-footer p {
+  text-align: center;
+  font-style: italic;
+  margin: 0 auto;
+  padding: .5rem 0;
+}
+
+img {
   height: 30vmin;
 }
