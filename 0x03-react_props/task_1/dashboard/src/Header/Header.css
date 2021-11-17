@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Cuprum:wght@400;700&family=Roboto:wght@400;700;900&family=Varela+Round&display=swap');
 
 .App-header {
   display: flex;
@@ -7,7 +7,7 @@
 
 h1 {
   position: absolute;
-  color: rgb(233, 67, 67);
+  color: #e1484c;
   top: 30%;
   left: 190px;
 }

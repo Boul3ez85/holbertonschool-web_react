@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Cuprum:wght@400;700&family=Roboto:wght@400;700;900&family=Varela+Round&display=swap');
 
 .App-body {
     height: 360px;
-    border-top: rgb(233, 67, 67) solid 3px;
-    border-bottom: rgb(233, 67, 67) solid 3px;
+    border-top: #e1484c solid 3px;
+    border-bottom: #e1484c solid 3px;
 }
   
 .App-body p {
     padding: 30px;
+}
+
+img {
+    height: 30vmin;
 }

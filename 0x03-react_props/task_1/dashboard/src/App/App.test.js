@@ -22,18 +22,18 @@ describe("Testing the <App /> Component", () => {
   });
 
   it("<App /> contains the <Notifications /> Component", () => {
-		expect(wrapper.contains(<Notifications />)).to.equal(true);
-	});
+    expect(wrapper.contains(<Notifications />)).to.equal(true);
+  });
 
-	it("<App /> contains the <Header /> Component", () => {
-		expect(wrapper.contains(<Header />)).to.equal(true);
-	});
+  it("<App /> contains the <Header /> Component", () => {
+    expect(wrapper.contains(<Header />)).to.equal(true);
+  });
 
-	it("<App /> contains the <Login /> Component", () => {
-		expect(wrapper.contains(<Login />)).to.equal(true);
-	});
+  it("<App /> contains the <Login /> Component", () => {
+    expect(wrapper.contains(<Login />)).to.equal(true);
+  });
 
-	it("<App /> contains the <Footer /> Component", () => {
-		expect(wrapper.contains(<Footer />)).to.equal(true);
-	});
+  it("<App /> contains the <Footer /> Component", () => {
+    expect(wrapper.contains(<Footer />)).to.equal(true);
+  });
 });
