@@ -1,30 +1,34 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from 'prop-types';
 
-function NotificationItem({ type, html, value }) {
-  let itemLi;
-
-  if (value) {
-    itemLi= <li data-notification-type={type}>{value}</li>
-  } else {
-    <li data-notification-type={type} dangerouslySetInnerHTML={html}></li>;
+class NotificationItem extends React.Component {
+  render() {
+    const { type, html, value } = this.props;
+    return (
+      <Fragment>
+	    {
+		  html !== undefined &&
+			<li data-priority-type={type} dangerouslySetInnerHTML={html} />
+		}
+		{
+		  html === undefined &&
+			<li data-priority-type={type}>{value}</li>
+		}
+      </Fragment>
+    );
   }
-  
-  return itemLi;
+}
+
+NotificationItem.propTypes = {
+  html: PropTypes.shape({
+	__html: PropTypes.string
+  }),
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string
 };
 
 NotificationItem.defaultProps = {
-  type: 'default',
-  value: '',
-  html: {},
-};
-
-NotificationItem.propTypes = {
-  type: PropTypes.string,
-  value: PropTypes.string,
-  html: PropTypes.shape({
-    __html: PropTypes.string,
-  }),
-};
+  type: "default",
+}
 
 export default NotificationItem;

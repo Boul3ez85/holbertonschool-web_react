@@ -4,44 +4,46 @@ import CourseListRow from './CourseListRow';
 import PropTypes from 'prop-types';
 import CourseShape from './CourseShape';
 
-const CourseList = ({ listCourses }) => {
-  return (
-    <table className='course-list'>
-      <thead>
-        <CourseListRow textFirstCell='Available courses' isHeader={true} />
-        <CourseListRow
-          textFirstCell='Course name'
-          textSecondCell='Credit'
-          isHeader={true}
-        />
-      </thead>
-      <tbody>
-        {listCourses.length === 0 && (
-          <CourseListRow
-            textFirstCell='No course available yet'
-            isHeader={false}
-          />
-        )}
-
-        {listCourses.map((course) => (
-          <CourseListRow
-            key={course.id}
-            textFirstCell={course.name}
-            textSecondCell={course.credit}
-            isHeader={false}
-          />
-        ))}
-      </tbody>
-    </table>
-  );
-};
-
-CourseList.defaultProps = {
-  listCourses: [],
+class CourseList extends React.Component {
+  render() {
+    let { listOfCourses } = this.props;
+    if (listOfCourses == null) {
+      return (
+        <div>No course available yet</div>
+      );
+    } else {
+      return (
+        <table id='course-list'>
+          <thead>
+            <CourseListRow textFirstCell='Available courses' isHeader={true} />
+            <CourseListRow textFirstCell='Course name' textSecondCell='Credit' />
+          </thead>
+          <tbody>
+            {
+              listOfCourses.map(course => {
+                return (
+                  <CourseListRow
+                    key={course.id}
+                    textFirstCell={course.name}
+                    textSecondCell={course.credit}
+                    isHeader={false}
+                  />
+                );
+              })
+            }
+          </tbody>
+        </table>
+      );
+    }
+  }
 };
 
 CourseList.propTypes = {
-  listCourses: PropTypes.arrayOf(CourseShape),
+  listOfCourses: PropTypes.arrayOf(CourseShape)
 };
+
+CourseList.defaultProps = {
+  listOfCourses: []
+}
 
 export default CourseList;

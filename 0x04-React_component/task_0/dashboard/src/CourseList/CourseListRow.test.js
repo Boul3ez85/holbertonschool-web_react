@@ -18,7 +18,7 @@ describe('<CourseListRow />', () => {
     const th = wrapper.find('th');
 
     expect(th).to.have.lengthOf(1);
-    expect(th.prop('colSpan')).to.equal('2');
+    expect(th.prop('colSpan')).to.equal(2);
   });
   it('renders two cells', () => {
     const wrapper = shallow(

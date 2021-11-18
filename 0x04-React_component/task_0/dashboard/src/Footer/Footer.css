@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;700&family=Cuprum:wght@400;700&family=Roboto:wght@400;700;900&family=Varela+Round&display=swap');
 
 .App-footer p {
     text-align: center;
     font-style: italic;
-  }
+    padding: .5rem 0;
+    height: 15px;
+}
