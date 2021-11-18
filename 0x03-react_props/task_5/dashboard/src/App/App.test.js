@@ -7,21 +7,21 @@ import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import Notifications from '../Notifications/Notifications';
+import CourseList from '../CourseList/CourseList';
 
 configure({adapter: new Adapter()});
 describe("Testing the <App /> Component", () => {
-	
-  let wrapper;
+	let wrapper;
 
-  beforeEach(() => {
-    wrapper = shallow(<App />);
-  });
+	beforeEach(() => {
+		wrapper = shallow(<App />);
+	});
 
-  it("<App /> is rendered without crashing", () => {
-    expect(wrapper).to.not.be.an('undefined');
-  });
+	it("<App /> is rendered without crashing", () => {
+		expect(wrapper).to.not.be.an('undefined');
+	});
 
-  it("<App /> contains the <Notifications /> Component", () => {
+	it("<App /> contains the <Notifications /> Component", () => {
 		expect(wrapper.contains(<Notifications />)).to.equal(true);
 	});
 
@@ -30,23 +30,25 @@ describe("Testing the <App /> Component", () => {
 	});
 
 	it("<App /> contains the <Login /> Component", () => {
-		expect(wrapper.contains(<Login />)).to.equal(false);
+		expect(wrapper.contains(<Login />)).to.equal(true);
 	});
 
 	it("<App /> contains the <Footer /> Component", () => {
 		expect(wrapper.contains(<Footer />)).to.equal(true);
 	});
 
-	it('CourseList with isLoggedIn false', () => {
-		const wrapper = shallow(<App />);
-		wrapper.update();
-		expect(wrapper.find('CourseList')).to.have.lengthOf(1);
-	  });
-	
-	it('isLoggedIn is true', () => {
-	  const wrapper = shallow(<App isLoggedIn />);
-	  wrapper.update();
-	  expect(wrapper.find('Login')).to.have.lengthOf(0);
-	  expect(wrapper.find('CourseList')).to.have.lengthOf(1);
+	it("<App /> doesn't contain <CourseList />", () => {
+		expect(wrapper.contains(<CourseList />)).to.equal(false);
 	});
+
+});
+
+describe("Testing the <App /> when isLoggedIn is true", () => {
+	let props = {
+		isLoggedIn: true,
+	};
+
+	let component = shallow(<App {...props} />);
+	expect(component.contains(<Login />)).to.equal(false);
+	expect(component.find(CourseList)).to.have.lengthOf(1);
 });
