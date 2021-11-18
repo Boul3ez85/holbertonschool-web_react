@@ -7,7 +7,7 @@ import Notifications from '../Notifications/Notifications.js';
 import CourseList from '../CourseList/CourseList';
 
 class App extends React.Component {
-  constructor() {
+  constructor(props) {
     super(props);
   }
   render() {
