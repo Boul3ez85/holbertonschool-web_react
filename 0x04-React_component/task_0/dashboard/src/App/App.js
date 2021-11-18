@@ -7,6 +7,9 @@ import Notifications from '../Notifications/Notifications.js';
 import CourseList from '../CourseList/CourseList';
 
 class App extends React.Component {
+  constructor() {
+    super(props);
+  }
   render() {
     let { isLoggedIn } = this.props;
     let listCourses = [
