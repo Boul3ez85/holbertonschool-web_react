@@ -7,6 +7,8 @@ import Notifications from '../Notifications/Notifications.js';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from '../utils/utils';
 import PropTypes from 'prop-types';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom.js';
+import BodySection from '../BodySection/BodySection.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,17 +58,26 @@ class App extends React.Component {
       <Fragment>
         <div className="App">
           <div className="upperside">
-            <Notifications listNotifications={listNotifications}/>
+            <Notifications listNotifications={listNotifications} />
             <Header />
           </div>
           {
             isLoggedIn === false &&
-            <Login />
+            <BodySectionWithMarginBottom tite="Log in to continue">
+              <Login />
+            </BodySectionWithMarginBottom>
           }
           {
             isLoggedIn === true &&
-            <CourseList listCourses={listCourses}/>
+            <BodySectionWithMarginBottom tite="Course list">
+              <CourseList listCourses={listCourses} />
+            </BodySectionWithMarginBottom>
           }
+          <BodySection title="News from the school">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </BodySection>
           <Footer />
         </div>
       </Fragment>
