@@ -62,13 +62,13 @@ class App extends React.Component {
             <Header />
           </div>
           {
-            isLoggedIn === false &&
+            isLoggedIn === true &&
             <BodySectionWithMarginBottom tite="Log in to continue">
               <Login />
             </BodySectionWithMarginBottom>
           }
           {
-            isLoggedIn === true &&
+            isLoggedIn === false &&
             <BodySectionWithMarginBottom tite="Course list">
               <CourseList listCourses={listCourses} />
             </BodySectionWithMarginBottom>
