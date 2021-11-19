@@ -1,6 +1,6 @@
 import 'jsdom-global/register';
 import React from 'react';
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { configure, mount } from 'enzyme';
 import WithLogging from './WithLogging.js';
