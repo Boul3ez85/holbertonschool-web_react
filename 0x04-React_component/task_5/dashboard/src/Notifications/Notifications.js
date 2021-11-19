@@ -12,6 +12,13 @@ class Notifications extends React.Component {
     this.markAsRead = this.markAsRead.bind(this);
   }
 
+  shouldComponentUpdate(nextProps) {
+		if (this.props.listNotifications.length < nextProps.listNotifications.length) {
+			return true;
+		}
+		return false;
+	};
+
   markAsRead(id) {
     console.log(`Notification ${id} has been marked as read`)
   }
