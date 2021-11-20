@@ -4,22 +4,23 @@ import PropTypes from 'prop-types';
 class CourseListRow extends React.Component {
   render() {
     let { isHeader, textFirstCell, textSecondCell } = this.props;
+    let backgroundRowColor = isHeader ? { "backgroundColor": "#deb5b545" } : { "backgroundColor": "#f5f5f5ab" }
     if (isHeader === true && textSecondCell == null) {
       return (
-        <tr style={{ backgroundColor: "#deb5b545" }}>
+        <tr style={backgroundRowColor}>
           <th colSpan={2}>{textFirstCell}</th>
         </tr>
       );
     } else if (isHeader === true && textSecondCell != null) {
       return (
-        <tr style={{ backgroundColor: "#f5f5f5ab" }}>
+        <tr style={backgroundRowColor}>
           <th>{textFirstCell}</th>
           <th>{textSecondCell}</th>
         </tr>
       );
     } else if (isHeader === false) {
       return (
-        <tr style={{ backgroundColor: "#f5f5f5ab" }}>
+        <tr style={backgroundRowColor}>
           <td>{textFirstCell}</td>
           <td>{textSecondCell}</td>
         </tr>
