@@ -12,24 +12,27 @@ describe("Testing the <NotificationItem /> Component", () => {
     expect(wrapper.exists()).to.not.be.an('undefined');
   });
 
-  it("Verify that <NotificationItem /> renders the correct html when it receives properties value", () => {
+  it("<NotificationItem /> render the correct HTML, by passing type and value props", () => {
     let props = {
-	  type: "default",
-	  value: "New resume",
-	  html: undefined
-	}
-	let component = shallow(<NotificationItem {...props} />);
-	expect(component.contains(<li data-priority-type={props.type} dangerouslySetInnerHTML={undefined}>New resume</li>)).to.equal(true);
+      type: "default",
+      value: "New resume",
+      html: undefined
+    }		
+    let component = shallow(<NotificationItem {...props} shouldRender />);
+    expect(component.containsAllMatchingElements([
+      <li data-priority-type={props.type}>{props.value}</li>
+    ])).to.equal(true);
   });
 
-  it ("Passing a dummy html prop, it renders the correct html", () => {
+  it("<NotificationItem /> render the correct HTML, by passing dummy html props", () => {
     let props = {
-	  type: "urgent",
-	  html: { __html: "<p>test</p>"},
-	  value: 'New resume',
-	}
-	let component = shallow(<NotificationItem {...props} />);
-	expect(component.containsAnyMatchingElements(<li data-priority-type={props.type} dangerouslySetInnerHTML={props.html} />)).to.equal(true);
+      type: "urgent",
+      html: { __html: "<p>test</p>"},
+    }
+    let component = shallow(<NotificationItem {...props} />);
+    expect(component.containsAllMatchingElements([
+      <li data-priority-type={props.type} dangerouslySetInnerHTML={props.html} />,
+    ])).to.equal(true);
   });
 
   it("Verify that the 'markAsRead' is called with the right ID argument", () => {

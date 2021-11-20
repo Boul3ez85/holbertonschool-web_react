@@ -12,6 +12,7 @@ import CourseList from '../CourseList/CourseList';
 
 configure({adapter: new Adapter()});
 describe("Testing the <App /> Component", () => {
+	
 	let wrapper;
 
 	beforeEach(() => {
@@ -39,28 +40,31 @@ describe("Testing the <App /> Component", () => {
 	});
 
 	it("<App /> doesn't contain <CourseList />", () => {
-		expect(wrapper.contains(<CourseList />)).to.equal(false);
+		expect(wrapper.find(CourseList)).to.have.lengthOf(0);
 	});
 
 });
 
 describe("Testing the <App /> when isLoggedIn is true", () => {
+
 	let props = {
 		isLoggedIn: true,
 	};
 
 	let component = shallow(<App {...props} />);
+
 	expect(component.contains(<Login />)).to.equal(false);
 	expect(component.find(CourseList)).to.have.lengthOf(1);
 });
 
-describe("verify that the alert function is called with the string 'Logging you out'", () => {
-	const logOutFun = jest.fn(() => undefined);
-	const myComp = mount(<App logOut={logOutFun} />);
+describe('logOut alerts with correct string', () => {
+	const myLogOut = jest.fn(() => undefined);
+	const appComp = mount(<App logOut={myLogOut} />);
 	const log = jest.spyOn(console, 'log');
 
-	expect(myComp.props.logOut);
+	expect(appComp.props.logOut);
 	expect(log);
 
 	jest.restoreAllMocks();
+
 });

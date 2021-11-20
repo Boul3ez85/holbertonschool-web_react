@@ -41,7 +41,7 @@ class App extends React.Component {
 
     let { isLoggedIn } = this.props;
 
-    let listCourses = [
+    let listOfCourses = [
       { id: 1, name: "ES6", credit: 60 },
       { id: 2, name: "Webpack", credit: 20 },
       { id: 3, name: "React", credit: 40 },
@@ -62,15 +62,15 @@ class App extends React.Component {
             <Header />
           </div>
           {
-            isLoggedIn === true &&
+            isLoggedIn === false &&
             <BodySectionWithMarginBottom tite="Log in to continue">
               <Login />
             </BodySectionWithMarginBottom>
           }
           {
-            isLoggedIn === false &&
+            isLoggedIn === true &&
             <BodySectionWithMarginBottom tite="Course list">
-              <CourseList listCourses={listCourses} />
+              <CourseList listOfCourses={listOfCourses} />
             </BodySectionWithMarginBottom>
           }
           <BodySection title="News from the school">
@@ -90,7 +90,7 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-  isLoggedIn: false,
+  isLoggedIn: true,
   logOut: () => {},
 };
 

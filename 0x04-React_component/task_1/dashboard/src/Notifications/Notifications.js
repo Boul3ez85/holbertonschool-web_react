@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
 
 class Notifications extends React.Component {
+
   render() {
     let { displayDrawer, listNotifications } = this.props;
     return (
@@ -62,12 +63,12 @@ class Notifications extends React.Component {
 
 Notifications.protoTypes = {
 	displayDrawer: PropTypes.bool,
-  listNotifications: PropTypes.arrayOf(NotificationItemShape)
+  listNotifications: PropTypes.arrayOf(NotificationItemShape),
 };
 
 Notifications.defaultProps = {
 	displayDrawer: false,
-  listNotifications: []
+  listNotifications: [],
 };
 
 export default Notifications;
