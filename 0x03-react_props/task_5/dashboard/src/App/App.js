@@ -9,7 +9,7 @@ import CourseList from '../CourseList/CourseList';
 class App extends React.Component {
   render() {
     let { isLoggedIn } = this.props;
-    let listCourses = [
+    let listOfCourses = [
       { id: 1, name: "ES6", credit: 60 },
       { id: 2, name: "Webpack", credit: 20 },
       { id: 3, name: "React", credit: 40 },
@@ -27,7 +27,7 @@ class App extends React.Component {
           }
           {
             isLoggedIn === true &&
-            <CourseList listCourses={listCourses}/>
+            <CourseList listOfCourses={listOfCourses}/>
           }
           <Footer />
         </div>
