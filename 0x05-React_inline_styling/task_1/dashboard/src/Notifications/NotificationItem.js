@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 
 class NotificationItem extends React.PureComponent {
   render() {
     const { type, html, value, markAsRead, id } = this.props;
     
-    let notificationStyle = (type === 'urgent') ? style.urgentNotif : style.defaultNotif;
     return (
       <Fragment>
 	      {
