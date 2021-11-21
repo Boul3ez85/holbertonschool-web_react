@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
 
 class NotificationItem extends React.PureComponent {
   render() {
@@ -11,25 +10,16 @@ class NotificationItem extends React.PureComponent {
       <Fragment>
 	      {
 		      html !== undefined &&
-			    <li className={css(notificationStyle)} onClick={() => markAsRead(id)} data-priority-type={type} dangerouslySetInnerHTML={html} />
+			    <li onClick={() => markAsRead(id)} data-priority-type={type} dangerouslySetInnerHTML={html} />
 		    }
 		    {
 		      html === undefined &&
-			    <li className={css(notificationStyle)} onClick={() => markAsRead(id)} data-priority-type={type}>{value}</li>
+			    <li onClick={() => markAsRead(id)} data-priority-type={type}>{value}</li>
 	    	}
       </Fragment>
     );
   }
 }
-
-const style = StyleSheet.create({
-  defaultNotif: {
-		color: 'blue',
-	},
-	urgentNotif: {
-		color: 'red',
-	},
-})
 
 NotificationItem.propTypes = {
   html: PropTypes.shape({
