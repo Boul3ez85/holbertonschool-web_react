@@ -1,14 +1,3 @@
-.Notifications {
-    position: relative;
-    padding: 20px;
-    border: rgb(233, 67, 67) dashed 1px;
-}
-
-.menuItem {
-	text-align: right;
-	font-weight: bold;
-}
-
 li[data-priority-type="default"] {
 	color: blue;
 }
