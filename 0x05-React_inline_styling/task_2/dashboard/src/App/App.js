@@ -78,7 +78,7 @@ class App extends React.Component {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </BodySection>
-          <Footer className={css(style.footer)} />
+          <Footer />
         </div>
       </Fragment>
     );  

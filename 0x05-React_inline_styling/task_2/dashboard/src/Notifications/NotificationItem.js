@@ -5,7 +5,13 @@ import { StyleSheet, css } from 'aphrodite';
 class NotificationItem extends React.PureComponent {
   render() {
     const { type, html, value, markAsRead, id } = this.props;
-    let notificationStyle = (type === 'urgent') ? style.urgentNotif : style.defaultNotif;
+
+    let notificationStyle;
+    if (type === "urgent") {
+      notificationStyle = style.urgentNotif;
+    } else if (type === "default") {
+      notificationStyle = style.defaultNotif;
+    }
     
     return (
       <Fragment>
