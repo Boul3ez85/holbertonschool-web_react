@@ -31,17 +31,21 @@ class NotificationItem extends React.PureComponent {
 const style = StyleSheet.create({
   urgentNotif: {
     color: "red",
-    listStyle: "none",
-    padding: "10px 8px",
-    borderBottom: `2px solid black`,
-    fontSize: "20px",
+    '@media (max-width: 900px)': {
+      listStyle: "none",
+      padding: "10px 8px",
+      borderBottom: `2px solid black`,
+      fontSize: "20px",
+    },
   },
   defaultNotif: {
     color: "blue",
-    listStyle: "none",
-    padding: "10px 8px",
-    borderBottom: `2px solid black`,
-    fontSize: "20px",
+    '@media (max-width: 900px)': {
+      listStyle: "none",
+      padding: "10px 8px",
+      borderBottom: `2px solid black`,
+      fontSize: "20px",
+    },
   }
 })
 

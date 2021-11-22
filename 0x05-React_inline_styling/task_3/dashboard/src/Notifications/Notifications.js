@@ -49,6 +49,7 @@ class Notifications extends React.Component {
 													type={item.type}
 													value={item.value}
 													html={item.html}
+                          markAsRead={this.markAsRead}
 												/>
                       );
                     })
@@ -80,7 +81,7 @@ const style = StyleSheet.create({
     position: "relative",
     padding: "20px",
     padding: '6px 12px',
-    margin: '12px auto',
+    margin: '12px 0',
     border: `#e1484c dashed 1px`,
     fontSize: "20px",
     '@media (max-width: 900px)': {
@@ -88,7 +89,7 @@ const style = StyleSheet.create({
       backgroundColor: 'white',
       display: 'block',
       border: "none",
-      padding: "5px 0 5px 0",
+      padding: "10px 8px",
     }
   },
 
