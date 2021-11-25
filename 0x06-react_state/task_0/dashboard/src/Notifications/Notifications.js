@@ -65,15 +65,18 @@ class Notifications extends React.Component {
               </Fragment>
             }
             <button
+              style={{
+                display: 'inline-block',
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                borderStyle: 'none',
+                outline: 'none',
+                cursor: 'pointer'
+              }}
               onClick={handleHideDrawer}
-              aria-label="Close"
-              style={{display: 'inline-block',
-                      position: 'absolute',
-                      top: '10px',
-                      right: '10px',
-                      borderStyle: 'none',
-                      outline: 'none',
-                      cursor: 'pointer'}}>
+              aria-label="Close"        
+            >
               <img src={close} alt='close' style={{width: '10px', height: '10px'}} />
             </button>
           </div>
@@ -149,7 +152,7 @@ Notifications.protoTypes = {
 };
 
 Notifications.defaultProps = {
-	displayDrawer: true,
+	displayDrawer: false,
   listNotifications: [],
   handleDisplayDrawer: () => {},
   handleHideDrawer: () => {},
