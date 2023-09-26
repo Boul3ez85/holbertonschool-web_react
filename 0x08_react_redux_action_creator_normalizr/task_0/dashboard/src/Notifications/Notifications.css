@@ -1,0 +1,35 @@
+.root-notifications {
+  border: 1px dashed #e1003c;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  margin: 30px 10px;
+}
+
+li[data-priority="default"] {
+  color: blue;
+}
+
+li[data-priority="urgent"] {
+  color: rgb(233, 67, 67);
+}
+
+button {
+  position: absolute;
+  right: -470px;
+  top: -449px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  transform: scale(0.012);
+  -webkit-transform: scale(0.012);
+  -moz-transform: scale(0.012);
+  -ms-transform: scale(0.012);
+  -o-transform: scale(0.012);
+}
+
+.menuItem {
+  float: right;
+  position: absolute;
+  right: 10px;
+  top: 2px;
+}

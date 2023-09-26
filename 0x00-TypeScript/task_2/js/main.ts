@@ -64,3 +64,5 @@ export function teachClass(todayClass: string): string {
     return "Teaching History";
   }
 }
+
+console.log(createEmployee(200));
